@@ -58,14 +58,19 @@ https://github.com/Zaiko2002/cad-2025/blob/main/les12/lab/screenshots/postman_%D
  
 Создание заказа
 https://github.com/Zaiko2002/cad-2025/blob/main/les12/lab/screenshots/%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%B7%D0%B0%D0%BA.PNG
+
 Список заказов 
 https://github.com/Zaiko2002/cad-2025/blob/main/les12/lab/screenshots/%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20%D0%B7%D0%B0%D0%BA.PNG
+
 Редактирование заказа 
 https://github.com/Zaiko2002/cad-2025/blob/main/les12/lab/screenshots/%D1%80%D0%B5%D0%B4%D0%B0%D0%BA%20%D0%B7%D0%B0%D0%BA.PNG
+
 Результат редактирования 
 https://github.com/Zaiko2002/cad-2025/blob/main/les12/lab/screenshots/%D1%80%D0%B5%D0%B7%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%82%20%D1%80%D0%B5%D0%B4%D0%B0%D0%BA.PNG
+
 Удаление заказа 
 https://github.com/Zaiko2002/cad-2025/blob/main/les12/lab/screenshots/%D1%83%D0%B4%D0%B0%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B7%D0%B0%D0%BA.PNG
+
  Заказ удален 
 https://github.com/Zaiko2002/cad-2025/blob/main/les12/lab/screenshots/%D1%80%D0%B5%D0%B7%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%82%20%D1%83%D0%B4%D0%B0%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F.PNG
  
