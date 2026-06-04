@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Создание заказа - Зоомагазин</title>
+    <style>
+        body { font-family: Arial; margin: 20px; }
+        .container { max-width: 500px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px; }
+        input, select { width: 100%; padding: 8px; margin: 10px 0; }
+        .btn { background-color: #4CAF50; color: white; padding: 10px 20px; border: none; cursor: pointer; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🛒 Создание заказа 🛒</h1>
+        
+        <form th:action="@{/web/orders/create}" method="post">
+            <label>👤 Клиент:</label>
+            <select name="customerId" required>
+                <option th:each="customer : ${customers}" th:value="${customer.id}" th:text="${customer.name}"></option>
+            </select>
+            
+            <label>📦 Товар:</label>
+            <select name="productId" required>
+                <option th:each="product : ${products}" th:value="${product.id}" th:text="${product.name} + ' - ' + ${product.price} + '₽'"></option>
+            </select>
+            
+            <label>🔢 Количество:</label>
+            <input type="number" name="quantity" value="1" required>
+            
+            <button type="submit" class="btn">✅ Создать заказ</button>
+            <a href="/web/orders" style="margin-left:10px;">🔙 Назад</a>
+        </form>
+    </div>
+</body>
+</html>

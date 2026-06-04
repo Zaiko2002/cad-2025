@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование заказа - Зоомагазин</title>
+    <style>
+        body { font-family: Arial; margin: 20px; }
+        .container { max-width: 500px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px; }
+        input, select { width: 100%; padding: 8px; margin: 10px 0; }
+        .btn { background-color: #2196F3; color: white; padding: 10px 20px; border: none; cursor: pointer; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>✏️ Редактирование заказа #<span th:text="${order.id}"></span></h1>
+        
+        <form th:action="@{/web/orders/edit/{id}(id=${order.id})}" method="post">
+            <label>📊 Статус:</label>
+            <select name="status" required>
+                <option value="NEW" th:selected="${order.status == 'NEW'}">NEW</option>
+                <option value="PROCESSING" th:selected="${order.status == 'PROCESSING'}">PROCESSING</option>
+                <option value="COMPLETED" th:selected="${order.status == 'COMPLETED'}">COMPLETED</option>
+                <option value="CANCELLED" th:selected="${order.status == 'CANCELLED'}">CANCELLED</option>
+            </select>
+            
+            <label>💰 Сумма:</label>
+            <input type="number" step="0.01" name="totalAmount" th:value="${order.totalAmount}" required>
+            
+            <button type="submit" class="btn">💾 Сохранить изменения</button>
+            <a href="/web/orders" style="margin-left:10px;">🔙 Назад</a>
+        </form>
+    </div>
+</body>
+</html>

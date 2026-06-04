@@ -1,0 +1,76 @@
+package ru.bsuedu.cad.lab.service;
+
+import ru.bsuedu.cad.lab.entity.*;
+import ru.bsuedu.cad.lab.repository.*;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import jakarta.annotation.PostConstruct;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
+@Service
+public class DataInitializerService {
+    
+    private final CategoryRepository categoryRepository;
+    private final ProductRepository productRepository;
+    private final CustomerRepository customerRepository;
+    private final OrderRepository orderRepository;
+    
+    public DataInitializerService(CategoryRepository categoryRepository,
+                                   ProductRepository productRepository,
+                                   CustomerRepository customerRepository,
+                                   OrderRepository orderRepository) {
+        this.categoryRepository = categoryRepository;
+        this.productRepository = productRepository;
+        this.customerRepository = customerRepository;
+        this.orderRepository = orderRepository;
+    }
+    
+    @PostConstruct
+    public void init() {
+        initializeData();
+    }
+    
+    @Transactional
+    public void initializeData() {
+        System.out.println("Инициализация данных...");
+        
+        // Категории
+        Category food = new Category("Корм", "Сухие и влажные корма");
+        Category hygiene = new Category("Гигиена", "Товары для гигиены");
+        Category toys = new Category("Игрушки", "Игрушки для животных");
+        
+        categoryRepository.save(food);
+        categoryRepository.save(hygiene);
+        categoryRepository.save(toys);
+        
+        // Продукты
+        Product p1 = new Product("Корм Pedigree", food, new BigDecimal("2500"), 30, "Собака");
+        Product p2 = new Product("Наполнитель Fresh Step", hygiene, new BigDecimal("800"), 50, "Кошка");
+        Product p3 = new Product("Игрушка-мяч Kong", toys, new BigDecimal("450"), 25, "Собака");
+        
+        productRepository.save(p1);
+        productRepository.save(p2);
+        productRepository.save(p3);
+        
+        // Клиенты
+        Customer c1 = new Customer("Иван Петров", "ivan@mail.ru", "+7-999-123-45-67");
+        Customer c2 = new Customer("Мария Иванова", "maria@mail.ru", "+7-999-765-43-21");
+        
+        customerRepository.save(c1);
+        customerRepository.save(c2);
+        
+        // Тестовый заказ (чтобы был хотя бы один заказ в БД)
+        Order testOrder = new Order();
+        testOrder.setCustomer(c1);
+        testOrder.setOrderDate(LocalDateTime.now());
+        testOrder.setStatus("NEW");
+        testOrder.setTotalAmount(new BigDecimal("2700.00"));
+        orderRepository.save(testOrder);
+        
+        System.out.println("Создано категорий: " + categoryRepository.count());
+        System.out.println("Создано продуктов: " + productRepository.count());
+        System.out.println("Создано клиентов: " + customerRepository.count());
+        System.out.println("Создано заказов: " + orderRepository.count());
+    }
+}

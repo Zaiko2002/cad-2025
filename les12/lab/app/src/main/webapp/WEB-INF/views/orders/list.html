@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Список заказов - Зоомагазин</title>
+    <style>
+        body { font-family: Arial; margin: 20px; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #4CAF50; color: white; }
+        .btn { background-color: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; display: inline-block; margin: 20px 0; border-radius: 5px; border: none; cursor: pointer; }
+        .btn-danger { background-color: #f44336; }
+        .btn-edit { background-color: #2196F3; }
+    </style>
+</head>
+<body>
+    <h1>🐾 Список заказов 🐾</h1>
+    
+    <a th:href="@{/web/orders/create}" class="btn">➕ Создать заказ</a>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Клиент</th>
+                <th>Сумма</th>
+                <th>Статус</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="order : ${orders}">
+                <td th:text="${order.id}"></td>
+                <td th:text="${order.customer.name}"></td>
+                <td th:text="${order.totalAmount}"></td>
+                <td th:text="${order.status}"></td>
+                <td>
+                    <a th:href="@{/web/orders/edit/{id}(id=${order.id})}" class="btn btn-edit">✏️ Редактировать</a>
+                    <form th:action="@{/web/orders/delete/{id}(id=${order.id})}" method="post" style="display:inline;">
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('Удалить заказ?')">🗑️ Удалить</button>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
