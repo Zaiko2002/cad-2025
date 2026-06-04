@@ -51,15 +51,23 @@
 ### 5. Результат работы
  
  REST API (Postman)
-(https://github.com/Zaiko2002/cad-2025/blob/main/les12/lab/screenshots/postman_%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5.PNG)
+ 
+https://github.com/Zaiko2002/cad-2025/blob/main/les12/lab/screenshots/postman_%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5.PNG
  
  Веб-интерфейс
-Создание заказа https://github.com/Zaiko2002/cad-2025/blob/main/les12/screenshots/web_%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5.PNG
-Список заказов https://github.com/Zaiko2002/cad-2025/blob/main/les12/screenshots/web_%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA.PNG
-Редактирование заказа https://github.com/Zaiko2002/cad-2025/blob/main/les12/screenshots/web_%D1%80%D0%B5%D0%B4%D0%B0%D0%BA%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5.PNG
-Результат редактирования https://github.com/Zaiko2002/cad-2025/blob/main/les12/screenshots/web_%D1%80%D0%B5%D0%B7%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%82%20%D1%80%D0%B5%D0%B4.PNG
-Удаление заказа https://github.com/Zaiko2002/cad-2025/blob/main/les12/screenshots/screenshots/%D0%A3%D0%B4%D0%B0%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0.PNG
- Заказ удален https://github.com/Zaiko2002/cad-2025/blob/main/les12/screenshots/screenshots/%D0%97%D0%B0%D0%BA%D0%B0%D0%B7%20%D1%83%D0%B4%D0%B0%D0%BB%D0%B5%D0%BD.PNG
+ 
+Создание заказа
+https://github.com/Zaiko2002/cad-2025/blob/main/les12/lab/screenshots/%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%B7%D0%B0%D0%BA.PNG
+Список заказов 
+https://github.com/Zaiko2002/cad-2025/blob/main/les12/lab/screenshots/%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20%D0%B7%D0%B0%D0%BA.PNG
+Редактирование заказа 
+https://github.com/Zaiko2002/cad-2025/blob/main/les12/lab/screenshots/%D1%80%D0%B5%D0%B4%D0%B0%D0%BA%20%D0%B7%D0%B0%D0%BA.PNG
+Результат редактирования 
+https://github.com/Zaiko2002/cad-2025/blob/main/les12/lab/screenshots/%D1%80%D0%B5%D0%B7%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%82%20%D1%80%D0%B5%D0%B4%D0%B0%D0%BA.PNG
+Удаление заказа 
+https://github.com/Zaiko2002/cad-2025/blob/main/les12/lab/screenshots/%D1%83%D0%B4%D0%B0%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B7%D0%B0%D0%BA.PNG
+ Заказ удален 
+https://github.com/Zaiko2002/cad-2025/blob/main/les12/lab/screenshots/%D1%80%D0%B5%D0%B7%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%82%20%D1%83%D0%B4%D0%B0%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F.PNG
  
 ## Вывод
 
