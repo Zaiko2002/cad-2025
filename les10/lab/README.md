@@ -58,15 +58,15 @@ REST API протестирован через Postman: GET-запрос к /api
 
 Список заказов
 
-https://github.com/Zaiko2002/cad-2025/blob/main/les10/screenshots/orders.PNG
+https://github.com/Zaiko2002/cad-2025/blob/main/les10/lab/screenshots/orders.PNG
 
 Форма создания заказа
 
-https://github.com/Zaiko2002/cad-2025/blob/main/les10/screenshots/create%20orders.PNG
+https://github.com/Zaiko2002/cad-2025/blob/main/les10/lab/screenshots/create%20orders.PNG
 
 REST API (Postman)
 
-https://github.com/Zaiko2002/cad-2025/blob/main/les10/screenshots/postman.PNG
+https://github.com/Zaiko2002/cad-2025/blob/main/les10/lab/screenshots/postman.PNG
 
  
 ## Вывод
