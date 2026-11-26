@@ -39,9 +39,11 @@ Controller (Контроллер): TaskController.java — обрабатыва�
 В шаблоне index.html добавлен выпадающий список <select> для выбора категории. Выбранная категория отображается рядом с названием задачи в виде стилизованного бейджа.
 
 Ключевые фрагменты кода
+
+
 1. Модель Task.java (фрагмент)
-   java
-   public class Task {
+```java
+public class Task {
    private Long id;
    private String title;
    private String description;
@@ -59,9 +61,11 @@ Controller (Контроллер): TaskController.java — обрабатыва�
    this.category = category;
    this.completed = false;
    }
-   // ... геттеры и сеттеры
-   }
+   
+   ```
+  
 2. Контроллер TaskController.java (фрагмент)
+```java
    java
    @Controller
    public class TaskController {
@@ -82,9 +86,10 @@ Controller (Контроллер): TaskController.java — обрабатыва�
    taskService.addTask(task);
    return "redirect:/";
    }
-   // ... методы удаления и обновления статуса
-   }
+   ```
+
 3. Шаблон index.html (форма добавления с категорией)
+```html
    html
    <h2>Добавить новую задачу</h2>
 <form th:action="@{/addTask}" method="post">
@@ -108,6 +113,7 @@ Controller (Контроллер): TaskController.java — обрабатыва�
     <button type="submit" style="margin-top: 10px;">Добавить задачу</button>
 </form>
 
+```
 Скриншоты работы программы
 
 1. Главная страница 

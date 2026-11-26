@@ -2,11 +2,11 @@ package com.example.lab2;
 
 
 public class Task {
-    private static Long nextId = 1L; // Генератор ID
+    private static Long nextId = 1L;
     private Long id;
     private String title;
     private String description;
-    private String category; // Дополнительное задание: категория задачи
+    private String category;
     private boolean completed;
 
     public Task() {
@@ -25,7 +25,7 @@ public class Task {
         return nextId++;
     }
 
-    // Геттеры и сеттеры
+
     public Long getId() { return id; }
     public String getTitle() { return title; }
     public void setTitle(String title) { this.title = title; }

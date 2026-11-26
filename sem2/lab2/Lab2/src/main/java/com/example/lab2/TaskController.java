@@ -37,8 +37,7 @@ public class TaskController {
 
     @PostMapping("/updateTask/{id}")
     public String updateTask(@PathVariable Long id, @RequestParam boolean completed) {
-        // В реальном проекте обновление лучше выносить в сервис,
-        // но для лабы оставим как в примере (через список из репозитория)
+
         for (Task task : taskService.getAllTasks()) {
             if (task.getId().equals(id)) {
                 task.setCompleted(completed);
