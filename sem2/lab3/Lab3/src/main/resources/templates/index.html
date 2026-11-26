@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>ToDo Tracker</title>
+</head>
+<body>
+<h1>ToDo List</h1>
+
+<!-- Вывод текущего пользователя -->
+<div>
+    Вы вошли как: <b sec:authentication="name"></b>
+
+</div>
+<br>
+
+<div th:each="task : ${tasks}" class="task">
+    <h3>
+        <span th:text="${task.title}">Title</span>
+        <span style="background:#2196F3; color:white; padding:2px 5px;" th:text="${task.category}">Category</span>
+    </h3>
+    <p th:text="${task.description}">Description</p>
+    <p>Статус: <strong th:text="${task.completed ? 'Выполнено' : 'В процессе'}">Status</strong></p>
+
+    <!-- Ссылка "Удалить" видна только Модератору и Работнику -->
+    <a th:href="@{/deleteTask/{id}(id=${task.id})}"
+       sec:authorize="hasAnyRole('MODERATOR', 'WORKER')">Удалить</a>
+
+    <!-- Кнопка "Выполнено" видна только Модератору и Студенту -->
+    <form th:action="@{/updateTask/{id}(id=${task.id})}" method="post"
+          style="display:inline;" sec:authorize="hasAnyRole('MODERATOR', 'STUDENT')">
+        <input type="hidden" name="completed" value="true">
+        <button type="submit" th:if="${!task.completed}">Отметить выполненным</button>
+    </form>
+</div>
+
+<hr>
+<!-- Добавлять задачи могут все авторизованные пользователи -->
+<h2>Добавить новую задачу</h2>
+<form th:action="@{/addTask}" method="post">
+    <label for="title">Название:</label>
+    <input type="text" id="title" name="title" required>
+    <label for="description">Описание:</label>
+    <input type="text" id="description" name="description" required>
+    <select id="category" name="category">
+        <option value="Учеба">Учеба</option>
+        <option value="Работа">Работа</option>
+        <option value="Личные дела">Личные дела</option>
+    </select>
+    <button type="submit">Добавить</button>
+</form>
+</body>
+</html>
