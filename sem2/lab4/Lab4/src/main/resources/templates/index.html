@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>ToDo Tracker</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .task-card { border: 1px solid #ccc; padding: 15px; margin-bottom: 15px; border-radius: 8px; }
+        .completed { background-color: #e8f5e9; }
+        .pending { background-color: #fff3e0; }
+        .badge { background: #2196F3; color: white; padding: 2px 6px; border-radius: 4px; font-size: 0.8em; }
+        .subtasks { margin-top: 10px; padding-left: 20px; border-left: 2px solid #ddd; }
+        .history { font-size: 0.8em; color: #555; margin-top: 10px; background: #f9f9f9; padding: 5px; }
+        .date { font-size: 0.8em; color: gray; }
+    </style>
+</head>
+<body>
+<h1>ToDo List</h1>
+<div>Вы вошли как: <b sec:authentication="name"></b></div>
+<br>
+
+<div th:each="task : ${tasks}" class="task-card" th:classappend="${task.completed} ? 'completed' : 'pending'">
+    <h3>
+        <span th:text="${task.title}">Title</span>
+        <span class="badge" th:text="${task.category}">Category</span>
+        <span class="badge" style="background: #e91e63;" th:text="${task.priority}">Priority</span>
+        <span class="badge" style="background: #4CAF50;" th:text="${task.user?.username}">User</span>
+    </h3>
+    <p th:text="${task.description}">Description</p>
+    <p class="date">Создано: <span th:text="${#temporals.format(task.createdAt, 'dd.MM.yyyy HH:mm')}"></span></p>
+    <p>Статус: <strong th:text="${task.completed ? 'Выполнено' : 'В процессе'}">Status</strong></p>
+
+    <a th:href="@{/deleteTask/{id}(id=${task.id})}" sec:authorize="hasAnyRole('MODERATOR', 'WORKER')">Удалить</a>
+
+    <form th:action="@{/updateTask/{id}(id=${task.id})}" method="post" style="display:inline;" sec:authorize="hasAnyRole('MODERATOR', 'STUDENT')">
+        <input type="hidden" name="completed" th:value="${!task.completed}">
+        <button type="submit" th:text="${task.completed ? 'Вернуть в работу' : 'Отметить выполненным'}"></button>
+    </form>
+
+    <div class="subtasks">
+        <strong>Подзадачи:</strong>
+        <ul>
+            <li th:each="subTask : ${task.subTasks}">
+                <span th:text="${subTask.description}"></span>
+                <span th:text="${subTask.completed ? ' [V]' : ' [ ]'}"></span>
+            </li>
+        </ul>
+        <form th:action="@{/addSubTask/{id}(id=${task.id})}" method="post">
+            <input type="text" name="description" placeholder="Новая подзадача..." required>
+            <button type="submit">+</button>
+        </form>
+    </div>
+
+    <!-- Задание 5: Вывод истории изменений -->
+    <div class="history" th:if="${not #lists.isEmpty(task.histories)}">
+        <strong>История изменений:</strong>
+        <ul>
+            <li th:each="hist : ${task.histories}">
+                <span th:text="${#temporals.format(hist.changeTime, 'dd.MM.yyyy HH:mm:ss')}"></span>:
+                <span th:text="${hist.oldState}"></span> -> <span th:text="${hist.newState}"></span>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<hr>
+<h2>Добавить новую задачу</h2>
+<form th:action="@{/addTask}" method="post">
+    <label>Название:</label> <input type="text" name="title" required><br>
+    <label>Описание:</label> <input type="text" name="description" required><br>
+    <label>Категория:</label>
+    <select name="category">
+        <option value="Учеба">Учеба</option>
+        <option value="Работа">Работа</option>
+        <option value="Личные дела">Личные дела</option>
+    </select><br>
+    <label>Приоритет:</label>
+    <select name="priority">
+        <option value="Высокий">Высокий</option>
+        <option value="Средний">Средний</option>
+        <option value="Низкий">Низкий</option>
+    </select><br>
+    <button type="submit">Добавить задачу</button>
+</form>
+</body>
+</html>
